@@ -1,3 +1,5 @@
 base:
   '*':
-    - common
+    - apps
+    - dev-langs
+    - services
