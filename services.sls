@@ -36,8 +36,9 @@ redis:
         make
         make test
         make install
+        cd utils
         yes | sudo ./install_server.sh
-    # does this yes thing hang the proces??
+      # does this yes thing hang the proces??
     - cwd: /tmp
     - shell: /bin/bash
     - unless: test -e /usr/local/bin/redis-server
