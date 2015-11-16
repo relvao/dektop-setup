@@ -15,6 +15,11 @@ apps-repos:
       - curl
       - git
       - build-essential
+      - python-software-properties
+      - autoconf
+      - ruby
+      - bison
+      - bundler
       - libssl-dev
       - libreadline-dev
       - zlib1g-dev
