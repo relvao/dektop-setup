@@ -75,3 +75,25 @@ elastic-search-2:
   pkg.installed:
     - sources:
       - atom: salt://packages/elasticsearch-2.0.0.deb
+
+# docker
+docker_package_repository:
+  pkgrepo.managed:
+    - name: deb https://apt.dockerproject.org/repo {{ grains["os"]|lower }}-{{ grains["oscodename"] }} main
+    - humanname: {{ grains["os"] }} {{ grains["oscodename"]|capitalize }} Docker Package Repository
+    - keyid: f76221572c52609d
+    - keyserver: keyserver.ubuntu.com
+    - file: /etc/apt/sources.list.d/docker.list
+    - refresh_db: True
+    - require_in:
+      - pkg: docker_package
+
+docker_purge:
+  pkg.purged:
+    - name: docker.io
+    - require_in:
+      - pkg: docker_package
+
+docker_package:
+  pkg.installed:
+    - name: docker-engine
