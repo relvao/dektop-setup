@@ -12,6 +12,7 @@ apps-repos:
     - pkgs:
       - htop
       - iotop
+      - nscd
       - curl
       - git
       - build-essential
